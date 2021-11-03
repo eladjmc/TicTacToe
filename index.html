@@ -11,14 +11,16 @@
 
 <body>
     <header>
-        <div class="welcome">Welcome to </div>
+        <div class="welcome">Welcome to TicTacToe</div>
         <span>Elad is gever™</span>
     </header>
     <div class="main_container">
-        <div class = "msg_board">
-            <div class="text_msg">player</div>
-            <div class="text_msg">1</div>
-            <div class="text_msg">win</div>
+        <div class="msg_board">
+            <div class="text_msg_container">
+                <div class="text_msg">player</div>
+                <div class="text_msg" id="XO_winner"></div>
+                <div class="text_msg">win</div>
+            </div>
         </div>
         <div class="XO_grid">
             <div class="box" id="box_00">
@@ -49,11 +51,14 @@
                 <div class="box_text" id="box_text_9"></div>
             </div>
         </div>
+
         <div class="button_container">
-            <button class="button">Reset Game</button>
+            <div class="button_background">
+                <button class="button">Reset Game</button>
+            </div>
         </div>
     </div>
-    <script src ="main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
