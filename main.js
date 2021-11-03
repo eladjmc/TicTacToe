@@ -9,6 +9,7 @@ function colorTheWinner(c1, c2, c3) {
         'c2': c2,
         'c3': c3
     }
+    
     for (var i = 0; i < 3; i++) {
         inBoard[a['c' + (i + 1)]].style.color = "red"
     }
