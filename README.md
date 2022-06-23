@@ -59,6 +59,43 @@ varibale3=value
 | `local_env_folder`      | `string` | **Required**. the path of the .env file without "/home/local_user/" |
 
 
+## How to use?
+
+## **Install ansible**
+```
+ sudo apt update
+ sudo apt install software-properties-common
+ sudo add-apt-repository --yes --update ppa:ansible/ansible
+ sudo apt install ansible -y
+ ```
+
+## **Connect the controller (machine)  to the nodes**
+###  `cd ~/.ssh`
+###  `nano id_rsa` (copy the private key here)
+###  `chmod 400 id_rsa` (read only)
+###  Create a file called inventory:
+```
+[staging]
+vm1-stage ansible_port=221 ansible_host={your-node-vm-ip} ansible_user={your-vm--username}
+vm2-stage ansible_port=222 ansible_host={your-node-vm-ip} ansible_user={your-vm-username}
+vm3-stage ansible_port=223 ansible_host={your-node-vm-ip} ansible_user={your-vm-username}
+
+[production]
+vm1-pro ansible_port=221 ansible_host={your-node-vm-ip} ansible_user={your-vm-username}
+vm2-pro ansible_port=222 ansible_host={your-node-vm-ip} ansible_user={your-vm-username}
+vm3-pro ansible_port=223 ansible_host={your-node-vm-ip} ansible_user={your-vm-username}
+
+```
+### Create a file called ansible.cfg:
+```
+[defaults]
+inventory = inventory
+private_key_file = ~/.ssh/id_rsa
+```
+
+###  Check the connection: `ansible all -i inventory -m ping`
+
+
 
 
 
